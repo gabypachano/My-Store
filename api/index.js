@@ -9,15 +9,16 @@ const {
 } = require('./middlewares/error.handler');
 
 const app = express();
-const port = 8000;
+const port = process.env.PORT || 8000;
 
 app.use(express.json());
 app.use(cors());
-app.get('/', (req, res) => {
+
+app.get('/api', (req, res) => {
   res.send('Hola, este es mi server en express. Yaaaayyy');
 });
 
-app.get('/new', (req, res) => {
+app.get('/api/new', (req, res) => {
   res.send("Hi. I'm your new route");
 });
 
